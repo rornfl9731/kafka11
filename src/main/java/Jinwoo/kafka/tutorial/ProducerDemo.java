@@ -15,8 +15,10 @@ public class ProducerDemo {
         Properties properties = new Properties();
 
 
-        //properties.setProperty("bootstrap.servers",bootstrapServer);  아래것이 더 좋고 편해
+        //properties.setProperty("bootstrap.servers",bootstrapServer);  아래것이 더 좋고 편해 진짜?
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServer);
+        //커밋하면 여기가 생기겠지? 오 신기방기
+
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
 
