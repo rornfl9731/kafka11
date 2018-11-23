@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class ProducerDemoWithCallback {
+public class ProducerWithCallback {
 
     public static void main(String[] args) {
 
-        final Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
+        final Logger logger = LoggerFactory.getLogger(ProducerWithCallback.class);
         String bootstrapServer = "127.0.0.1:9092";
         //create Procudcer properties
         Properties properties = new Properties();
@@ -28,10 +28,13 @@ public class ProducerDemoWithCallback {
         for(int i=0;i<10;i++){
             //record
 
-            ProducerRecord<String, String> record = new ProducerRecord<String, String>("one_topic", "hello worldd"+Integer.toString(i));
+            ProducerRecord<String, String> record = new ProducerRecord<String, String>("one_topic", "김진우"+Integer.toString(i));
 
             // 데이터 보내 -> 비동기
 
+
+
+            //보낸 데이터가 어디로 갔는지 확인 하는
             producer.send(record, new Callback() {
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (e == null) {
